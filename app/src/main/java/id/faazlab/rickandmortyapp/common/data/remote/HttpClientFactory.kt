@@ -1,7 +1,11 @@
 package id.faazlab.rickandmortyapp.common.data.remote
 
+import android.content.Context
+import com.chuckerteam.chucker.api.ChuckerCollector
+import com.chuckerteam.chucker.api.ChuckerInterceptor
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.HttpClientEngine
+import io.ktor.client.engine.okhttp.OkHttp
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.plugins.defaultRequest
 import io.ktor.client.plugins.logging.ANDROID
@@ -18,8 +22,19 @@ import kotlinx.serialization.json.Json
  */
 object HttpClientFactory {
 
-    fun create(engine: HttpClientEngine): HttpClient {
-        return HttpClient(engine) {
+    fun create(context: Context): HttpClient {
+        val chuckerInterceptor = ChuckerInterceptor.Builder(context)
+            .collector(ChuckerCollector(context))
+            .maxContentLength(250000L)
+            .redactHeaders(emptySet())
+            .alwaysReadResponseBody(false)
+            .build()
+
+        val okhttpEngine = OkHttp.create {
+            addInterceptor(chuckerInterceptor)
+        }
+
+        return HttpClient(okhttpEngine) {
             install(Logging) {
                 level = LogLevel.ALL
                 logger = Logger.ANDROID

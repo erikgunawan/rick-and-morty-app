@@ -9,6 +9,8 @@ import org.koin.dsl.module
  * Created by erikgunawan on 29/11/24.
  */
 val commonModule = module {
-    single { HttpClientFactory.create(CIO.create()) }
+    val client = CIO.create().apply {
+    }
+    single { HttpClientFactory.create(get()) }
     single { ApiClient(get()) }
 }
