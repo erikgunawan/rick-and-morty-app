@@ -25,6 +25,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".feature.character.presentation.list.CharacterListActivity" />
+
+        <activity android:name=".feature.episode.presentation.list.EpisodeListActivity" />
+
+        <activity android:name=".feature.location.presentation.list.LocationListActivity" />
     </application>
 
 </manifest>
