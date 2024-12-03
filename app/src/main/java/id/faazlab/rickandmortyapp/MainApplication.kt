@@ -2,6 +2,7 @@ package id.faazlab.rickandmortyapp
 
 import android.app.Application
 import id.faazlab.rickandmortyapp.common.di.commonModule
+import id.faazlab.rickandmortyapp.feature.location.di.locationModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -17,7 +18,7 @@ class MainApplication : Application() {
         startKoin {
             androidContext(this@MainApplication)
             androidLogger()
-            modules(commonModule)
+            modules(commonModule, locationModule)
         }
 
     }
