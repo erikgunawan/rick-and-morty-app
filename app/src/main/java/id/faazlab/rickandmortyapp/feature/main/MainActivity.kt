@@ -12,27 +12,18 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import id.faazlab.rickandmortyapp.common.data.remote.ApiClient
 import id.faazlab.rickandmortyapp.common.presentation.ui.theme.RickMortyAppTheme
 import id.faazlab.rickandmortyapp.feature.character.presentation.list.CharacterListActivity
 import id.faazlab.rickandmortyapp.feature.episode.presentation.list.EpisodeListActivity
 import id.faazlab.rickandmortyapp.feature.location.presentation.list.LocationListActivity
-import kotlinx.coroutines.runBlocking
-import org.koin.android.ext.android.inject
 
 /**
  * Created by erikgunawan on 02/12/24.
  */
 class MainActivity : ComponentActivity() {
 
-    private val apiClient : ApiClient by inject()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        runBlocking {
-            apiClient.main()
-        }
 
         setContent {
             RickMortyAppTheme {
