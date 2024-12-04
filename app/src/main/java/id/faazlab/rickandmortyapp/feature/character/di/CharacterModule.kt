@@ -5,6 +5,8 @@ import id.faazlab.rickandmortyapp.feature.character.data.remote.CharacterReposit
 import id.faazlab.rickandmortyapp.feature.character.domain.CharacterRepository
 import id.faazlab.rickandmortyapp.feature.character.domain.CharacterUseCase
 import id.faazlab.rickandmortyapp.feature.character.domain.CharacterUseCaseImpl
+import id.faazlab.rickandmortyapp.feature.character.presentation.CharacterViewModel
+import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
 
 /**
@@ -14,4 +16,6 @@ val characterModule = module {
     single<CharacterRemoteDataSource> { CharacterRemoteDataSource(get()) }
     single<CharacterRepository> { CharacterRepositoryImpl(get()) }
     single<CharacterUseCase> { CharacterUseCaseImpl(get()) }
+
+    viewModel { CharacterViewModel(get()) }
 }

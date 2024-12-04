@@ -1,8 +1,6 @@
 package id.faazlab.rickandmortyapp.feature.character.domain.model
 
 import id.faazlab.rickandmortyapp.feature.character.data.remote.model.CharacterDto
-import id.faazlab.rickandmortyapp.feature.location.domain.model.Location
-import id.faazlab.rickandmortyapp.feature.location.domain.model.toLocation
 
 /**
  * Created by erikgunawan on 03/12/24.
@@ -14,8 +12,8 @@ data class Character(
     val species: String,
     val type: String,
     val gender: String,
-    val origin: Location?,
-    val location: Location?,
+    val origin: Origin?,
+    val location: Origin?,
     val image: String,
     val episode: List<String>,
     val url: String,
@@ -29,8 +27,8 @@ fun CharacterDto.toCharacter() = Character(
     species = species ?: "",
     type = type ?: "",
     gender = gender ?: "",
-    origin = origin?.toLocation(),
-    location = location?.toLocation(),
+    origin = origin?.toOrigin(),
+    location = location?.toOrigin(),
     image = image ?: "",
     episode = episode ?: listOf(),
     url = url ?: "",

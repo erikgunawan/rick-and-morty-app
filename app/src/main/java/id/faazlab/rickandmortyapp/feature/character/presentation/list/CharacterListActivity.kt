@@ -7,16 +7,15 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material3.Text
 import id.faazlab.rickandmortyapp.common.presentation.ui.theme.RickMortyAppTheme
-import id.faazlab.rickandmortyapp.feature.character.domain.CharacterUseCase
-import kotlinx.coroutines.runBlocking
-import org.koin.android.ext.android.inject
+import id.faazlab.rickandmortyapp.feature.character.presentation.CharacterViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**
  * Created by erikgunawan on 03/12/24.
  */
 class CharacterListActivity : ComponentActivity() {
 
-    private val characterUseCase: CharacterUseCase by inject()
+    private val characterViewModel: CharacterViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,10 +26,7 @@ class CharacterListActivity : ComponentActivity() {
             }
         }
 
-        runBlocking {
-            characterUseCase.getAllCharacters()
-            characterUseCase.getCharacterById(1)
-        }
+        characterViewModel.getAllCharacters()
     }
 
     companion object {
