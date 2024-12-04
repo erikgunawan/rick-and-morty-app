@@ -4,8 +4,8 @@ import id.faazlab.rickandmortyapp.common.data.remote.baseUrl
 import id.faazlab.rickandmortyapp.common.data.remote.model.BaseResponse
 import id.faazlab.rickandmortyapp.common.data.remote.safeApiCall
 import id.faazlab.rickandmortyapp.common.domain.util.ResponseResult
-import id.faazlab.rickandmortyapp.feature.character.domain.model.Character
 import id.faazlab.rickandmortyapp.feature.character.data.remote.model.CharacterDto
+import id.faazlab.rickandmortyapp.feature.character.domain.model.Character
 import id.faazlab.rickandmortyapp.feature.character.domain.model.toCharacter
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body

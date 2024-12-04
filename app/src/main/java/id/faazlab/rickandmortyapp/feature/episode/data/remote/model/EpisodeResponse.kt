@@ -1,6 +1,6 @@
 package id.faazlab.rickandmortyapp.feature.episode.data.remote.model
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
@@ -10,7 +10,7 @@ import kotlinx.serialization.Serializable
 data class EpisodeDto(
     val id: Int?,
     val name: String?,
-    @SerializedName("air_date") val airDate: String?,
+    @SerialName("air_date") val airDate: String?,
     val episode: String?,
     val characters: List<String>?,
     val url: String?,

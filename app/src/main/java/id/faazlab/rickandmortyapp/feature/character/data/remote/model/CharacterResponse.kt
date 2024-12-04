@@ -1,6 +1,5 @@
 package id.faazlab.rickandmortyapp.feature.character.data.remote.model
 
-import id.faazlab.rickandmortyapp.feature.location.data.remote.model.LocationDto
 import kotlinx.serialization.Serializable
 
 /**

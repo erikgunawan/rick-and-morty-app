@@ -5,6 +5,8 @@ import id.faazlab.rickandmortyapp.feature.episode.data.remote.EpisodeRepositoryI
 import id.faazlab.rickandmortyapp.feature.episode.domain.EpisodeRepository
 import id.faazlab.rickandmortyapp.feature.episode.domain.EpisodeUseCase
 import id.faazlab.rickandmortyapp.feature.episode.domain.EpisodeUseCaseImpl
+import id.faazlab.rickandmortyapp.feature.episode.presentation.EpisodeViewModel
+import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
 
 /**
@@ -14,4 +16,6 @@ val episodeModule = module {
     single<EpisodeRemoteDataSource> { EpisodeRemoteDataSource(get()) }
     single<EpisodeRepository> { EpisodeRepositoryImpl(get()) }
     single<EpisodeUseCase> { EpisodeUseCaseImpl(get()) }
+
+    viewModel { EpisodeViewModel(get()) }
 }

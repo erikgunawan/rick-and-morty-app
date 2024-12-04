@@ -5,6 +5,8 @@ import id.faazlab.rickandmortyapp.feature.location.data.remote.LocationRepositor
 import id.faazlab.rickandmortyapp.feature.location.domain.LocationRepository
 import id.faazlab.rickandmortyapp.feature.location.domain.LocationUseCase
 import id.faazlab.rickandmortyapp.feature.location.domain.LocationUseCaseImpl
+import id.faazlab.rickandmortyapp.feature.location.presentation.LocationViewModel
+import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
 
 /**
@@ -14,4 +16,6 @@ val locationModule = module {
     single<LocationRemoteDataSource> { LocationRemoteDataSource(get()) }
     single<LocationRepository> { LocationRepositoryImpl(get()) }
     single<LocationUseCase> { LocationUseCaseImpl(get()) }
+
+    viewModel { LocationViewModel(get()) }
 }

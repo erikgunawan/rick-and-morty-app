@@ -1,7 +1,6 @@
 package id.faazlab.rickandmortyapp.common.di
 
 import id.faazlab.rickandmortyapp.common.data.remote.HttpClientFactory
-import io.ktor.client.engine.cio.CIO
 import org.koin.dsl.module
 
 /**
