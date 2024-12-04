@@ -7,11 +7,16 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material3.Text
 import id.faazlab.rickandmortyapp.common.presentation.ui.theme.RickMortyAppTheme
+import id.faazlab.rickandmortyapp.feature.episode.domain.EpisodeUseCase
+import kotlinx.coroutines.runBlocking
+import org.koin.android.ext.android.inject
 
 /**
  * Created by erikgunawan on 03/12/24.
  */
 class EpisodeListActivity : ComponentActivity() {
+
+    private val episodeUseCase : EpisodeUseCase by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,6 +25,11 @@ class EpisodeListActivity : ComponentActivity() {
             RickMortyAppTheme {
                 Text("Episode List")
             }
+        }
+
+        runBlocking {
+            episodeUseCase.getAllEpisodes()
+            episodeUseCase.getEpisodeById(1)
         }
     }
 
