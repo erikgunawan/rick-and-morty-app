@@ -64,6 +64,7 @@ dependencies {
     implementation(libs.bundles.koin)
     implementation(libs.bundles.kotlinx.coroutines)
     implementation(libs.bundles.ktor)
+    implementation(libs.bundles.paging)
 
     releaseImplementation(libs.chucker.no.op)
     debugImplementation(libs.chucker)
