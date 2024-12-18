@@ -1,7 +1,5 @@
 package id.faazlab.rickandmortyapp.feature.character.presentation.list
 
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -27,10 +25,5 @@ class CharacterListActivity : ComponentActivity() {
         }
 
         characterViewModel.getAllCharacters()
-    }
-
-    companion object {
-        fun newIntent(context: Context) =
-            Intent(context, CharacterListActivity::class.java)
     }
 }

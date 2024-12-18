@@ -13,14 +13,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import id.faazlab.rickandmortyapp.common.presentation.ui.theme.RickMortyAppTheme
-import id.faazlab.rickandmortyapp.feature.character.presentation.list.CharacterListActivity
-import id.faazlab.rickandmortyapp.feature.episode.presentation.list.EpisodeListActivity
-import id.faazlab.rickandmortyapp.feature.location.presentation.list.LocationListActivity
+import id.faazlab.rickandmortyapp.navigation.NavigationManager
+import org.koin.android.ext.android.inject
 
 /**
  * Created by erikgunawan on 02/12/24.
  */
 class MainActivity : ComponentActivity() {
+
+    private val navigationManager: NavigationManager by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,9 +35,9 @@ class MainActivity : ComponentActivity() {
                     println("Clicked: $clickedButtonText")
 
                     when (clickedButtonText) {
-                        "Character" -> startActivity(CharacterListActivity.newIntent(this))
-                        "Episode" -> startActivity(EpisodeListActivity.newIntent(this))
-                        "Location" -> startActivity(LocationListActivity.newIntent(this))
+                        "Character" -> navigationManager.gotoCharacterListPage()
+                        "Episode" -> navigationManager.gotoEpisodeListPage()
+                        "Location" -> navigationManager.gotoLocationListPage()
                     }
                 }
             }

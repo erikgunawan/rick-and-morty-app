@@ -1,7 +1,5 @@
 package id.faazlab.rickandmortyapp.feature.location.presentation.list
 
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -27,10 +25,5 @@ class LocationListActivity : ComponentActivity() {
         }
 
         locationViewModel.getAllLocations()
-    }
-
-    companion object {
-        fun newIntent(context: Context) =
-            Intent(context, LocationListActivity::class.java)
     }
 }
