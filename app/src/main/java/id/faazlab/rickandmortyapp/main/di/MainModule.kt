@@ -8,6 +8,7 @@ import org.koin.dsl.module
 /**
  * Created by erikgunawan on 18/12/24.
  */
-val mainModule = module {
-    single<NavigationManager> { NavigationManagerImpl(androidApplication()) }
-}
+val mainModule =
+    module {
+        single<NavigationManager> { NavigationManagerImpl(androidApplication()) }
+    }

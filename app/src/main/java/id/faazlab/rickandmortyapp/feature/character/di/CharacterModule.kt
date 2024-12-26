@@ -12,10 +12,11 @@ import org.koin.dsl.module
 /**
  * Created by erikgunawan on 04/12/24.
  */
-val characterModule = module {
-    single<CharacterRemoteDataSource> { CharacterRemoteDataSource(get()) }
-    single<CharacterRepository> { CharacterRepositoryImpl(get()) }
-    single<CharacterUseCase> { CharacterUseCaseImpl(get()) }
+val characterModule =
+    module {
+        single<CharacterRemoteDataSource> { CharacterRemoteDataSource(get()) }
+        single<CharacterRepository> { CharacterRepositoryImpl(get()) }
+        single<CharacterUseCase> { CharacterUseCaseImpl(get()) }
 
-    viewModel { CharacterViewModel(get()) }
-}
+        viewModel { CharacterViewModel(get()) }
+    }

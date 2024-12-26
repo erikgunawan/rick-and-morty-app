@@ -20,7 +20,6 @@ import org.koin.android.ext.android.inject
  * Created by erikgunawan on 02/12/24.
  */
 class MainActivity : ComponentActivity() {
-
     private val navigationManager: NavigationManager by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,14 +45,18 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun ButtonList(buttons: List<String>, onButtonClick: (String) -> Unit) {
+fun ButtonList(
+    buttons: List<String>,
+    onButtonClick: (String) -> Unit,
+) {
     LazyColumn {
         items(buttons) { buttonText ->
             Button(
                 onClick = { onButtonClick(buttonText) },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(8.dp)
+                modifier =
+                    Modifier
+                        .fillMaxWidth()
+                        .padding(8.dp),
             ) {
                 Text(text = buttonText)
             }

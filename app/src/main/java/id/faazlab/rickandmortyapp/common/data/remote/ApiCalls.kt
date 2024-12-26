@@ -7,14 +7,13 @@ import id.faazlab.rickandmortyapp.common.domain.util.ResponseResult
  */
 fun baseUrl() = "https://rickandmortyapi.com/api"
 
-inline fun <reified T> safeApiCall(
-    execute: () -> T
-): ResponseResult<T> {
-    val response = try {
-        ResponseResult.Success(execute())
-    } catch(e: Exception) {
-        return ResponseResult.Error(e)
-    }
+inline fun <reified T> safeApiCall(execute: () -> T): ResponseResult<T> {
+    val response =
+        try {
+            ResponseResult.Success(execute())
+        } catch (e: Exception) {
+            return ResponseResult.Error(e)
+        }
 
     return response
 }

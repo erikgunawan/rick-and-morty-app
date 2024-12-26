@@ -20,18 +20,20 @@ import kotlinx.serialization.json.Json
  * Created by erikgunawan on 29/11/24.
  */
 object HttpClientFactory {
-
     fun create(context: Context): HttpClient {
-        val chuckerInterceptor = ChuckerInterceptor.Builder(context)
-            .collector(ChuckerCollector(context))
-            .maxContentLength(250000L)
-            .redactHeaders(emptySet())
-            .alwaysReadResponseBody(false)
-            .build()
+        val chuckerInterceptor =
+            ChuckerInterceptor
+                .Builder(context)
+                .collector(ChuckerCollector(context))
+                .maxContentLength(250000L)
+                .redactHeaders(emptySet())
+                .alwaysReadResponseBody(false)
+                .build()
 
-        val okhttpEngine = OkHttp.create {
-            addInterceptor(chuckerInterceptor)
-        }
+        val okhttpEngine =
+            OkHttp.create {
+                addInterceptor(chuckerInterceptor)
+            }
 
         return HttpClient(okhttpEngine) {
             install(Logging) {
@@ -40,9 +42,10 @@ object HttpClientFactory {
             }
             install(ContentNegotiation) {
                 json(
-                    json = Json {
-                        ignoreUnknownKeys = true
-                    }
+                    json =
+                        Json {
+                            ignoreUnknownKeys = true
+                        },
                 )
             }
             defaultRequest {

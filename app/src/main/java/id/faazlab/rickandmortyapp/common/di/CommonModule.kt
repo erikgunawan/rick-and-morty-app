@@ -6,6 +6,7 @@ import org.koin.dsl.module
 /**
  * Created by erikgunawan on 29/11/24.
  */
-val commonModule = module {
-    single { HttpClientFactory.create(get()) }
-}
+val commonModule =
+    module {
+        single { HttpClientFactory.create(get()) }
+    }
